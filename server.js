@@ -9,12 +9,12 @@ app.get('/', function(req, res) {
 
 app.get ('/:str', function(req, res) {
     var str=req.params.str;
-    var d=moment(str, ["x","MMM MMMM-D DD-YYYY"]);
+    var d=moment(str, ["X","MMM MMMM-D DD-YYYY"]);
     var unix=null;
     var nat=null;
     if (d.isValid()) {
-        unix=true; //placeholder values
-        nat=true;
+        unix=d.format("X");
+        nat=d.format("MMM MMMM-D DD-YYYY");
     }
     res.type('application/json')
     res.send({"unix":unix, "natural":nat});
