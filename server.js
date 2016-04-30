@@ -7,7 +7,7 @@ app.get('/', function(req, res) {
 });
 
 app.get ('/:str', function(req, res) {
-    var str=req.param.str;
+    var str=req.params.str;
     var unix=null;
     var nat=null;
     if (isNaturalDate(str)) {
