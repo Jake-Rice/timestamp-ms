@@ -1,5 +1,6 @@
 var express = require('express');
 var app = express();
+var moment=require('moment');
 
 app.get('/', function(req, res) {
     res.type('text/plain')
@@ -8,15 +9,12 @@ app.get('/', function(req, res) {
 
 app.get ('/:str', function(req, res) {
     var str=req.params.str;
+    var d=moment(str);
     var unix=null;
     var nat=null;
-    if (isNaturalDate(str)) {
-        unix=false; //placeholder values
-        nat=true;
-    }
-    else if (isUnixDate(str)) {
+    if (d.isValid()) {
         unix=true; //placeholder values
-        nat=false;
+        nat=true;
     }
     res.type('application/json')
     res.send({"unix":unix, "natural":nat});
