@@ -9,7 +9,7 @@ app.get('/', function(req, res) {
 
 app.get ('/:str', function(req, res) {
     var str=req.params.str;
-    var d=moment(str);
+    var d=moment(str, ["x","MMM MMMM-D DD-YYYY"]);
     var unix=null;
     var nat=null;
     if (d.isValid()) {
