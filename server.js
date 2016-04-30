@@ -11,12 +11,12 @@ app.get ('/:str', function(req, res) {
     var unix=null;
     var nat=null;
     if (isNaturalDate(str)) {
-        unix=true; //placeholder values
+        unix=false; //placeholder values
         nat=true;
     }
-    else if (isNaturalDate(str)) {
+    else if (isUnixDate(str)) {
         unix=true; //placeholder values
-        nat=true;
+        nat=false;
     }
     res.type('application/json')
     res.send({"unix":unix, "natural":nat});
